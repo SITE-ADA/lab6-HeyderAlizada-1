@@ -1,7 +1,6 @@
-package az.edu.ada.wm2.repository;
+package az.edu.ada.wm2.lab6.repository;
 
 import az.edu.ada.wm2.lab6.model.Product;
-import az.edu.ada.wm2.lab6.repository.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
@@ -20,11 +19,10 @@ class ProductRepositoryTest {
 
     @Test
     void findByExpirationDateBefore_shouldReturnResults() {
-        Product product = Product.builder()
-                .productName("Milk")
-                .price(BigDecimal.TEN)
-                .expirationDate(LocalDate.now().plusDays(2))
-                .build();
+        Product product = new Product();
+        product.setProductName("Milk");
+        product.setPrice(BigDecimal.TEN);
+        product.setExpirationDate(LocalDate.now().plusDays(2));
 
         productRepository.save(product);
 
@@ -36,11 +34,10 @@ class ProductRepositoryTest {
 
     @Test
     void findByPriceBetween_shouldReturnResults() {
-        Product product = Product.builder()
-                .productName("Milk")
-                .price(BigDecimal.TEN)
-                .expirationDate(LocalDate.now())
-                .build();
+        Product product = new Product();
+        product.setProductName("Milk");
+        product.setPrice(BigDecimal.TEN);
+        product.setExpirationDate(LocalDate.now());
 
         productRepository.save(product);
 
