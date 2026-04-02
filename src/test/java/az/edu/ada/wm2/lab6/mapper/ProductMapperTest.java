@@ -1,4 +1,4 @@
-package az.edu.ada.wm2.mapper;
+package az.edu.ada.wm2.lab6.mapper;
 
 import az.edu.ada.wm2.lab6.model.Category;
 import az.edu.ada.wm2.lab6.model.Product;
@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +25,7 @@ class ProductMapperTest {
         category.setName("Food");
 
         Product product = Product.builder()
-                .categories(List.of(category))
+                .categories(Set.of(category))
                 .build();
 
         ProductResponseDto dto = productMapper.toResponseDto(product);

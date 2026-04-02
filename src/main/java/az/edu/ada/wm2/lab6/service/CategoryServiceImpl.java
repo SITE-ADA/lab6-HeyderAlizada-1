@@ -49,7 +49,7 @@ public class CategoryServiceImpl implements CategoryService {
         product.getCategories().add(category);
 
         productRepository.save(product);
-        categoryRepository.save(category);
+        category = categoryRepository.save(category);
 
         return CategoryMapper.toResponseDto(category);
     }
